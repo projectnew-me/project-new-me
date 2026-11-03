@@ -226,3 +226,147 @@ body.pnm-sidebar-open .pnm-sidebar-backdrop {
     overflow: hidden;
   }
 }
+/* =================================
+   PNM PROFILE & SETTINGS
+================================= */
+
+.pnm-profile-card {
+  max-width: 760px;
+  padding: 28px;
+  border: 1px solid var(--line, rgba(232,227,216,.13));
+  border-radius: 22px;
+  background: var(--panel, #202521);
+}
+
+#pnmProfileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pnm-avatar-panel {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding-bottom: 22px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pnm-avatar,
+#pnmAvatarPreview {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--olive, #899477);
+}
+
+.pnm-avatar {
+  display: grid;
+  place-items: center;
+  background: var(--panel2, #29312b);
+  color: var(--olive2, #a8b394);
+  font-size: 20px;
+  font-weight: 850;
+}
+
+#pnmAvatarPreview[hidden] {
+  display: none;
+}
+
+#pnmAvatarInput {
+  display: none;
+}
+
+#pnmProfileForm label,
+#settings label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--text, #eeeae0);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#pnmDisplayName,
+#pnmBio,
+#settings select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--line, rgba(232,227,216,.13));
+  border-radius: 12px;
+  background: var(--bg, #171918);
+  color: var(--text, #eeeae0);
+  font: inherit;
+  outline: none;
+}
+
+#pnmDisplayName:focus,
+#pnmBio:focus,
+#settings select:focus {
+  border-color: var(--olive, #899477);
+  box-shadow: 0 0 0 3px rgba(137,148,119,.15);
+}
+
+#pnmBio {
+  min-height: 110px;
+  resize: vertical;
+}
+
+#pnmSaveProfile,
+#pnmSaveSettings {
+  margin-top: 10px;
+  min-height: 46px;
+}
+
+#settings .card {
+  max-width: 760px;
+  padding: 26px;
+  border-radius: 20px;
+  background: var(--panel, #202521);
+  border: 1px solid var(--line);
+}
+
+#settings select {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+#settings h3 {
+  margin-top: 0;
+}
+
+#pnmAccountEmail {
+  color: var(--muted, #a9afa3);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+#pnmLogout {
+  color: #e49a9a;
+  border-color: rgba(228,154,154,.25);
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .pnm-profile-card,
+  #settings .card {
+    padding: 19px;
+  }
+
+  .pnm-avatar-panel {
+    gap: 13px;
+  }
+
+  .pnm-avatar,
+  #pnmAvatarPreview {
+    width: 72px;
+    height: 72px;
+  }
+
+  #pnmSaveProfile,
+  #pnmSaveSettings {
+    width: 100%;
+  }
+}
