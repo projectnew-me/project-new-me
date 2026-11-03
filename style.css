@@ -42,4 +42,187 @@ footer{padding:30px 5%;border-top:1px solid var(--line);color:var(--muted);text-
 @media(max-width:650px){.achievement-section{padding:18px!important}.achievement-grid{grid-template-columns:1fr}.points-panel{align-items:flex-start;flex-direction:column}}
 
 /* Achievement unlock progress */
+
 .achievement-body{flex:1;min-width:0}.achievement-progress-text{margin-top:9px!important;font-size:12px!important;color:var(--olive)!important}.achievement-progress{height:5px;margin-top:7px;background:var(--line);border-radius:8px;overflow:hidden}.achievement-progress span{display:block;height:100%;background:var(--olive);border-radius:8px;transition:width .25s ease}
+/* =================================
+   PNM SIDEBAR — DESKTOP & MOBILE
+================================= */
+
+.pnm-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1002;
+  width: 285px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  overflow-y: auto;
+  background: var(--panel, #202521);
+  color: var(--text, #eeeae0);
+  border-right: 1px solid var(--line, rgba(232,227,216,.13));
+  box-shadow: 15px 0 45px rgba(0,0,0,.18);
+  transform: translateX(-105%);
+  transition: transform .3s ease;
+}
+
+body.pnm-sidebar-open .pnm-sidebar {
+  transform: translateX(0);
+}
+
+.pnm-sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pnm-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .1em;
+}
+
+.pnm-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--olive, #899477);
+  color: #171918;
+  font-weight: 900;
+}
+
+#pnmSidebarClose {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  border-radius: 9px;
+  width: 34px;
+  height: 34px;
+  font-size: 22px;
+}
+
+.pnm-sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pnm-sidebar-section p {
+  margin: 0 0 6px 9px;
+  color: var(--olive2, #a8b394);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .16em;
+}
+
+.pnm-side-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 11px;
+  color: var(--muted, #a9afa3);
+  font-size: 14px;
+  text-decoration: none;
+  transition: .2s ease;
+}
+
+.pnm-side-link:hover {
+  background: var(--panel2, #29312b);
+  color: var(--text, #eeeae0);
+}
+
+.pnm-sidebar-bottom {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+#pnmThemeToggle {
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel2, #29312b);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.pnm-menu-toggle {
+  position: fixed;
+  top: 17px;
+  left: 17px;
+  z-index: 1003;
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 21px;
+  cursor: pointer;
+}
+
+body.pnm-sidebar-open .pnm-menu-toggle {
+  display: none;
+}
+
+.pnm-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: rgba(0,0,0,.35);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: .3s ease;
+}
+
+body.pnm-sidebar-open .pnm-sidebar-backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Desktop content adjustment */
+@media (min-width: 851px) {
+  .nav,
+  body.pnm-sidebar-open main,
+  body.pnm-sidebar-open footer {
+    transition: margin-left .3s ease, width .3s ease;
+  }
+
+  body.pnm-sidebar-open .nav,
+  body.pnm-sidebar-open main,
+  body.pnm-sidebar-open footer {
+    margin-left: 285px;
+    width: calc(100% - 285px);
+  }
+
+  .pnm-sidebar-backdrop {
+    background: transparent;
+  }
+}
+
+/* Mobile sidebar */
+@media (max-width: 850px) {
+  .pnm-sidebar {
+    width: min(285px, 85vw);
+  }
+
+  body.pnm-sidebar-open {
+    overflow: hidden;
+  }
+}
