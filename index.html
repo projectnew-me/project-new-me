@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PROJECT NEW ME — Build yourself. Inspire others.">
+<title>PNM — Project New Me</title><link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head><body>
+<header class="nav">
+<a class="brand" href="#"><span class="logo">PNM</span> PROJECT NEW ME</a>
+<nav><a href="#about">About</a><a href="#features">Experience</a><a href="#premium">Premium</a></nav>
+<div class="nav-actions"><button id="themeToggle" class="secondary">☼ Theme</button><button id="openLogin" class="secondary">Log in</button><button id="openSignup">Sign up</button></div>
+</header>
+<main id="publicContent">
+<section class="hero"><p class="eyebrow">YOUR PERSONAL GROWTH PLATFORM</p><h1>Build a better <span>you.</span></h1>
+<p class="lead">AI guidance, meaningful goals and a supportive community — one step at a time.</p>
+<button class="button" id="heroSignup">Start your journey →</button>
+<div class="preview"><p class="eyebrow">YOUR JOURNEY</p><h2>Small steps matter.</h2><p>AI Companion · My Goals · My Journey · Community</p><div class="progress"><span></span></div><small>Illustrative dashboard preview · 68% weekly progress</small></div></section>
+<section id="about"><p class="eyebrow">THE IDEA</p><h2>Growth should feel personal, practical and possible.</h2><p>PNM brings self-development tools into one thoughtful experience. Start where you are, choose what matters, and build at a pace that works for your life.</p></section>
+<section id="features"><p class="eyebrow">ONE PLATFORM, MANY WAYS TO GROW</p><h2>Your growth toolkit.</h2><div class="cards">
+<article><h3>✦ AI Companion</h3><p>A central assistant to help you think clearly, plan and find useful next steps.</p></article>
+<article><h3>◎ Specialist AI</h3><p>Focused support for learning, productivity, fitness and career development.</p></article>
+<article><h3>◈ My Journey</h3><p>Turn bigger ambitions into manageable daily and weekly actions.</p></article>
+<article><h3>▥ Progress</h3><p>Review goals and patterns with clear progress summaries.</p></article>
+<article><h3>♧ Community</h3><p>Share milestones, join challenges and encourage positive growth.</p></article>
+<article><h3>☼ Mindful Living</h3><p>Make room for reflection, wellbeing and the values that matter to you.</p></article>
+</div></section>
+<section id="premium" class="premium"><p class="eyebrow">PNM PREMIUM</p><h2>More tools for your journey.</h2><p>Planned premium experience: expanded AI support, specialist assistants, personalized plans and advanced progress tools.</p><strong>25 DH <small>/ month · planned price, not yet active</small></strong></section>
+</main>
+<main id="dashboard" class="hidden"><section class="dashboard"><p class="eyebrow">WELCOME TO YOUR SPACE</p><h1>Your journey starts <span>here.</span></h1><p class="lead" id="welcomeText">You are signed in.</p>
+<section class="goal-section"><div class="section-heading"><div><p class="eyebrow">YOUR PERSONAL PLAN</p><h2>My Goals</h2><p class="muted">Set a direction. Make progress one step at a time.</p></div><button id="showGoalForm" class="button">+ Add a goal</button></div>
+<form id="goalForm" class="goal-form hidden"><h3 id="goalFormTitle">Create a goal</h3><label for="goalTitle">Goal name</label><input id="goalTitle" maxlength="80" required placeholder="Example: Improve my English"><label for="goalDescription">Why is this important? (optional)</label><textarea id="goalDescription" maxlength="300" rows="2" placeholder="Write a short description..."></textarea><div class="form-row"><div><label for="goalCategory">Category</label><select id="goalCategory"><option>Learning</option><option>Career</option><option>Health & wellbeing</option><option>Personal</option><option>Finance</option><option>Other</option></select></div><div><label for="goalDate">Target date (optional)</label><input id="goalDate" type="date"></div></div><div class="form-actions"><button type="submit" class="button" id="saveGoalButton">Save goal</button><button type="button" id="cancelGoal" class="secondary">Cancel</button></div><p id="goalMessage" class="message" aria-live="polite"></p></form>
+<div id="goalsList" class="goals-list"><p class="muted">Loading your goals…</p></div>
+</section>
+<section id="myJourney" class="journey-section"><div class="section-heading"><div><p class="eyebrow">YOUR PERSONAL GROWTH STORY</p><h2>My Journey</h2><p class="muted">See how far you have come, one goal at a time.</p></div></div><div class="journey-stats"><article class="journey-stat"><span class="muted">Total goals</span><strong id="journeyTotal">0</strong></article><article class="journey-stat"><span class="muted">In progress</span><strong id="journeyActive">0</strong></article><article class="journey-stat"><span class="muted">Completed</span><strong id="journeyCompleted">0</strong></article><article class="journey-stat"><span class="muted">Overall progress</span><strong id="journeyProgress">0%</strong></article></div><div class="journey-overall"><div class="journey-overall-top"><strong>Overall progress</strong><strong id="journeyProgressLabel">0%</strong></div><div class="goal-bar"><span id="journeyProgressBar" style="width:0%"></span></div></div><div class="journey-history"><h3>My milestones</h3><div id="journeyMilestones"><p class="muted">Your milestones will appear here when you add goals.</p></div></div></section>
+<section id="achievements" class="achievement-section">
+ <div class="section-heading"><div><p class="eyebrow">RECOGNIZE YOUR PROGRESS</p><h2>Achievements</h2><p class="muted">Every meaningful step counts. Unlock badges as you move forward.</p></div></div>
+ <div class="points-panel"><div><span class="muted">Your points</span><strong id="achievementPoints">0</strong></div><p class="muted">Points are earned from unlocked milestones in your goals.</p></div>
+ <div id="achievementGrid" class="achievement-grid" aria-live="polite"></div>
+</section>
+<div class="cards dashboard-cards"><article><h3>AI Companion</h3><p>Your AI companion will be connected in a future update.</p></article></div><button id="logoutButton" class="secondary">Log out</button></section></main>
+<div class="modal hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle"><div class="modal-card">
+<button class="close" id="closeAuth" aria-label="Close">×</button><p class="eyebrow">PROJECT NEW ME</p><h2 id="authTitle">Create your account</h2><p class="muted" id="authDescription">Start building your next chapter.</p>
+<form id="authForm"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required placeholder="you@example.com">
+<label for="password">Password</label><input id="password" type="password" autocomplete="new-password" minlength="8" required placeholder="At least 8 characters">
+<button id="authSubmit" type="submit" class="button full">Create account</button></form>
+<p id="authMessage" class="message" aria-live="polite"></p><p class="switch-text"><span id="switchPrompt">Already have an account?</span> <button id="switchAuth" class="text-button" type="button">Log in</button></p>
+</div></div><footer>PROJECT NEW ME · BUILD YOURSELF. INSPIRE OTHERS.</footer><script src="script.js"></script>
+</body></html>

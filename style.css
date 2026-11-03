@@ -1,0 +1,45 @@
+:root{--bg:#171918;--panel:#222923;--text:#eeeae0;--muted:#a9afa3;--olive:#899477;--line:#3b443c}
+[data-theme="light"]{--bg:#f7f5ef;--panel:#fffefa;--text:#28352c;--muted:#687267;--olive:#718260;--line:#deded4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,Arial,sans-serif;transition:.2s}
+.nav{position:sticky;z-index:5;top:0;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px max(5vw,20px);background:var(--bg);border-bottom:1px solid var(--line)}
+.brand{font-weight:800;letter-spacing:.1em;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:10px}.logo{background:var(--olive);color:#171918;padding:8px;border-radius:10px}
+nav{display:flex;gap:22px}nav a{color:var(--muted);text-decoration:none}
+button,.button{border:0;border-radius:10px;padding:11px 16px;background:var(--olive);color:#171918;font-weight:750;text-decoration:none;cursor:pointer;font:inherit;font-weight:750}
+button:hover,.button:hover{filter:brightness(1.08)}.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}.nav-actions{display:flex;gap:8px;align-items:center}
+main{width:min(1050px,90%);margin:auto}.hero{padding:85px 0 60px;max-width:760px}.eyebrow{color:var(--olive);font-weight:800;font-size:12px;letter-spacing:.16em}
+.hero h1,.dashboard h1{font-size:clamp(48px,8vw,82px);line-height:1;margin:16px 0}.hero h1 span,.dashboard h1 span{color:var(--olive)}.lead{font-size:20px;color:var(--muted);max-width:650px}
+.preview{margin-top:45px;padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--panel)}.preview h2{margin:5px 0}.progress{height:8px;background:var(--line);border-radius:8px;margin:20px 0}.progress span{display:block;width:68%;height:100%;background:var(--olive);border-radius:8px}
+section:not(.hero){padding:55px 0;border-top:1px solid var(--line)}h2{font-size:clamp(30px,5vw,46px);line-height:1.1}section>p:not(.eyebrow){color:var(--muted);max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.cards article,.premium{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}.cards p,.premium p{color:var(--muted)}.premium strong{font-size:30px}.premium small{font-size:14px;color:var(--muted)}
+footer{padding:30px 5%;border-top:1px solid var(--line);color:var(--muted);text-align:center;font-size:13px}
+.hidden{display:none!important}.modal{position:fixed;z-index:20;inset:0;background:#000a;display:grid;place-items:center;padding:20px}.modal-card{position:relative;width:min(440px,100%);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:0 20px 70px #0005}
+.modal-card h2{margin:8px 0}.muted,.switch-text{color:var(--muted)}.modal-card label{display:block;margin:14px 0 6px;font-weight:650}.modal-card input{width:100%;padding:13px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit}
+.full{width:100%;margin-top:20px}.close{position:absolute;right:16px;top:12px;background:transparent;color:var(--text);font-size:28px;padding:2px 9px}.message{min-height:24px;font-size:14px;color:var(--olive)}.text-button{padding:0;background:none;color:var(--olive);text-decoration:underline}.switch-text{font-size:14px}.dashboard{padding:70px 0}.dashboard .cards{margin:35px 0}
+@media(max-width:800px){.nav{flex-wrap:wrap}.nav-actions{width:100%;justify-content:flex-end}nav{order:3;width:100%;justify-content:space-between;font-size:14px}.cards{grid-template-columns:1fr}.hero{padding-top:55px}}
+@media(max-width:430px){.brand{font-size:13px}.nav-actions button{padding:9px 11px;font-size:13px}}
+/* My Goals */
+.goal-section{padding:28px!important;margin:34px 0;background:var(--panel);border:1px solid var(--line);border-radius:18px}
+.section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px}.section-heading h2{margin:4px 0}.section-heading p{margin:6px 0;color:var(--muted)}
+.goal-form{margin:24px 0;padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.goal-form label{display:block;margin:12px 0 6px;font-weight:650}.goal-form input,.goal-form textarea,.goal-form select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit}.goal-form textarea{resize:vertical}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-actions{display:flex;gap:10px;margin-top:18px}.goals-list{display:grid;gap:12px;margin-top:22px}.goal-card{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}.goal-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.goal-top h3{margin:0 0 5px}.goal-meta,.goal-description{color:var(--muted);font-size:14px}.goal-description{margin:10px 0}.goal-progress-row{display:flex;align-items:center;gap:12px;margin:14px 0 8px}.goal-progress-row input{flex:1;accent-color:var(--olive)}.goal-progress-row strong{min-width:42px;text-align:right}.goal-bar{height:7px;background:var(--line);border-radius:8px;overflow:hidden}.goal-bar span{display:block;height:100%;background:var(--olive);border-radius:8px}.goal-actions{display:flex;gap:8px;margin-top:12px}.goal-actions button{font-size:13px;padding:7px 11px}.goal-empty{text-align:center;padding:26px 12px;border:1px dashed var(--line);border-radius:14px;color:var(--muted)}.goal-status{font-size:12px;color:var(--olive);font-weight:700}.dashboard-cards{margin:28px 0}
+@media(max-width:600px){.section-heading{align-items:flex-start;flex-direction:column}.form-row{grid-template-columns:1fr}.goal-section{padding:18px!important}.goal-top{flex-direction:column}}
+
+/* My Journey */
+.journey-section{padding:28px!important;margin:28px 0;background:var(--panel);border:1px solid var(--line);border-radius:18px}.journey-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.journey-stat{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg);display:flex;flex-direction:column;gap:8px}.journey-stat strong{font-size:30px;color:var(--olive)}.journey-overall{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}.journey-overall-top{display:flex;justify-content:space-between;gap:12px;margin-bottom:12px}.journey-history{margin-top:26px}.journey-history h3{margin-bottom:14px}#journeyMilestones{display:grid;gap:10px}.milestone{display:flex;align-items:flex-start;gap:12px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}.milestone-marker{display:grid;place-items:center;flex:0 0 28px;height:28px;border-radius:50%;background:var(--olive);color:#171918;font-weight:800}.milestone-body p{margin:4px 0 0;color:var(--muted);font-size:14px}@media(max-width:650px){.journey-stats{grid-template-columns:repeat(2,1fr)}.journey-section{padding:18px!important}}
+
+/* Achievements */
+.achievement-section{padding:28px!important;margin:28px 0;background:var(--panel);border:1px solid var(--line);border-radius:18px}
+.points-panel{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:22px 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.points-panel strong{display:block;font-size:34px;color:var(--olive);line-height:1.2}
+.points-panel p{margin:0;font-size:13px}
+.achievement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.achievement-card{display:flex;gap:13px;align-items:flex-start;padding:17px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.achievement-icon{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:13px;background:color-mix(in srgb,var(--olive) 20%,transparent);font-size:21px}
+.achievement-card.locked{opacity:.55}
+.achievement-card h3{margin:0 0 4px;font-size:15px}
+.achievement-card p{margin:0;color:var(--muted);font-size:13px}
+.achievement-points{display:inline-block;margin-top:7px;color:var(--olive);font-size:12px;font-weight:800}
+@media(max-width:650px){.achievement-section{padding:18px!important}.achievement-grid{grid-template-columns:1fr}.points-panel{align-items:flex-start;flex-direction:column}}
+
+/* Achievement unlock progress */
+.achievement-body{flex:1;min-width:0}.achievement-progress-text{margin-top:9px!important;font-size:12px!important;color:var(--olive)!important}.achievement-progress{height:5px;margin-top:7px;background:var(--line);border-radius:8px;overflow:hidden}.achievement-progress span{display:block;height:100%;background:var(--olive);border-radius:8px;transition:width .25s ease}
