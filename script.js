@@ -57,3 +57,83 @@ goalForm.addEventListener("submit",async e=>{e.preventDefault();if(!client||!cur
 async function updateProgress(id,progress){const{error}=await client.from("goals").update({progress}).eq("id",id);if(error){alert("Could not update progress: "+error.message);loadGoals();}else loadGoals();}
 async function deleteGoal(id){if(!confirm("Delete this goal? This cannot be undone."))return;const{error}=await client.from("goals").delete().eq("id",id);if(error){alert("Could not delete goal: "+error.message);return;}loadGoals();}
 if(window.supabase&&window.supabase.createClient){client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);form.addEventListener("submit",async e=>{e.preventDefault();const email=document.getElementById("email").value.trim(),password=document.getElementById("password").value;submit.disabled=true;submit.textContent="Please wait…";say("");try{if(mode==="signup"){const{data,error}=await client.auth.signUp({email,password,options:{emailRedirectTo:"https://frolicking-dragon-92c789.netlify.app/"}});if(error)throw error;if(data.session){closeAuth();signedIn(data.user);}else say("Check your email for a confirmation link. After confirming, come back and log in.");}else{const{data,error}=await client.auth.signInWithPassword({email,password});if(error)throw error;closeAuth();signedIn(data.user);}}catch(err){say(err.message||"Something went wrong. Please try again.",true);}finally{submit.disabled=false;submit.textContent=mode==="signup"?"Create account":"Log in";}});document.getElementById("logoutButton").onclick=async()=>{const{error}=await client.auth.signOut();if(error){alert(error.message);return;}signedOut();};client.auth.getSession().then(({data})=>{if(data.session?.user)signedIn(data.session.user);});client.auth.onAuthStateChange((_event,session)=>{if(session?.user)signedIn(session.user);else signedOut();});}else{document.getElementById("openSignup").onclick=()=>alert("Authentication library did not load. Check your internet connection and refresh.");document.getElementById("openLogin").onclick=()=>alert("Authentication library did not load. Check your internet connection and refresh.");}
+/* =================================
+   PNM SIDEBAR — MENU CONTROLS
+================================= */
+
+(() => {
+  function initPNMSidebar() {
+    const sidebar = document.getElementById("pnmSidebar");
+    const menuButton = document.getElementById("pnmMenuToggle");
+    const closeButton = document.getElementById("pnmSidebarClose");
+    const backdrop = document.getElementById("pnmSidebarBackdrop");
+    const themeButton = document.getElementById("pnmThemeToggle");
+
+    if (!sidebar || !menuButton || sidebar.dataset.ready) return;
+    sidebar.dataset.ready = "true";
+
+    function openSidebar() {
+      document.body.classList.add("pnm-sidebar-open");
+
+      if (backdrop) {
+        backdrop.style.pointerEvents =
+          window.matchMedia("(max-width: 850px)").matches
+            ? "auto"
+            : "none";
+      }
+
+      menuButton.setAttribute("aria-expanded", "true");
+    }
+
+    function closeSidebar() {
+      document.body.classList.remove("pnm-sidebar-open");
+      menuButton.setAttribute("aria-expanded", "false");
+    }
+
+    menuButton.addEventListener("click", openSidebar);
+
+    if (closeButton) {
+      closeButton.addEventListener("click", closeSidebar);
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener("click", closeSidebar);
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeSidebar();
+    });
+
+    sidebar.querySelectorAll(".pnm-side-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.matchMedia("(max-width: 850px)").matches) {
+          closeSidebar();
+        }
+      });
+    });
+
+    // Dark / Light theme
+    if (themeButton) {
+      themeButton.addEventListener("click", () => {
+        const root = document.documentElement;
+
+        const currentTheme =
+          root.getAttribute("data-theme") ||
+          localStorage.getItem("pnm-theme") ||
+          "dark";
+
+        const nextTheme =
+          currentTheme === "dark" ? "light" : "dark";
+
+        root.setAttribute("data-theme", nextTheme);
+        localStorage.setItem("pnm-theme", nextTheme);
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPNMSidebar);
+  } else {
+    initPNMSidebar();
+  }
+})();
