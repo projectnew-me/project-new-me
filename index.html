@@ -5,6 +5,45 @@
 <title>PNM — Project New Me</title><link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head><body>
+ <!-- PNM SIDEBAR -->
+<button id="pnmMenuToggle" class="pnm-menu-toggle" type="button" aria-label="Open menu">☰</button>
+
+<button id="pnmSidebarBackdrop" class="pnm-sidebar-backdrop" type="button" aria-label="Close menu"></button>
+
+<aside id="pnmSidebar" class="pnm-sidebar">
+  <div class="pnm-sidebar-head">
+    <a href="#top" class="pnm-brand">
+      <span class="pnm-mark">PNM</span>
+      <span>PROJECT NEW ME</span>
+    </a>
+    <button id="pnmSidebarClose" type="button">×</button>
+  </div>
+
+  <div class="pnm-sidebar-section">
+    <p>YOUR ACCOUNT</p>
+    <a href="#profile" class="pnm-side-link">👤 Profile</a>
+    <a href="#settings" class="pnm-side-link">⚙️ Settings</a>
+  </div>
+
+  <div class="pnm-sidebar-section">
+    <p>YOUR SPACE</p>
+    <a href="#dashboard" class="pnm-side-link">⌂ Dashboard</a>
+    <a href="#goals" class="pnm-side-link">◎ My Goals</a>
+    <a href="#journey" class="pnm-side-link">↗ My Journey</a>
+    <a href="#achievements" class="pnm-side-link">🏆 Achievements</a>
+  </div>
+
+  <div class="pnm-sidebar-section">
+    <p>DISCOVER</p>
+    <a href="#ai-companion" class="pnm-side-link">✧ AI Companion</a>
+    <a href="#community" class="pnm-side-link">♧ Community</a>
+    <a href="#challenges" class="pnm-side-link">⚑ Challenges</a>
+  </div>
+
+  <div class="pnm-sidebar-bottom">
+    <button id="pnmThemeToggle" type="button">☼ Appearance: Dark / Light</button>
+  </div>
+</aside>
 <header class="nav">
 <a class="brand" href="#"><span class="logo">PNM</span> PROJECT NEW ME</a>
 <nav><a href="#about">About</a><a href="#features">Experience</a><a href="#premium">Premium</a></nav>
